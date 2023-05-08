@@ -1,0 +1,11 @@
+{
+  "additionalFiles": "..\\..",
+  "builtInToolsFolders": "",
+  "compiler.optimization_flags": "",
+  "customBuildProperties": "",
+  "fqbn": "arduino:avr:nano:cpu=atmega328",
+  "hardwareFolders": "C:\\Users\\benpo\\AppData\\Local\\Arduino15\\packages",
+  "otherLibrariesFolders": "C:\\Users\\benpo\\OneDrive\\מסמכים\\Arduino\\libraries",
+  "runtime.ide.version": "10607",
+  "sketchLocation": "C:\\Users\\benpo\\OneDrive - mail.tau.ac.il\\לימודים\\סמסטר ב\\חשיפה לחומרה\\3 - FR\\FR"
+}
