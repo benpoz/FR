@@ -29,8 +29,6 @@ def detect_bounding_box(vid):
     avg_y = avg_y // faces.shape[0]
     avg_x = avg_x // faces.shape[0]
     
-    frd = 123
-    
     print(avg_x, avg_y)
     return faces
     
