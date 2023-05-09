@@ -1,9 +1,11 @@
 import cv2
 import numpy as np
+import serial
 
 x_center = 320
 y_center = 230
-
+arduino_x = serial.Serial('com4',9600) #Create Serial port object called arduinoSerialData
+arduino_z = serial.Serial('com3',9600) #Create Serial port object called arduinoSerialData
 
 video_capture = cv2.VideoCapture(1)
 face_classifier = cv2.CascadeClassifier(
@@ -30,8 +32,26 @@ def detect_bounding_box(vid):
     avg_x = avg_x // faces.shape[0]
     
     print(avg_x, avg_y)
-    return faces
+    return faces, avg_x, avg_y
     
+
+def trackFace(avg_x, avg_y):
+    if avg_x > x_center+100:
+        arduino_x.write(b'right')
+    elif avg_x < x_center-100: 
+        arduino_x.write(b'left')
+    else:
+        arduino_x.write(b'stop')
+    
+     if avg_y > y_center+100:
+        arduino_z.write(b'down')
+    elif avg_y < y_center-100: 
+        arduino_z.write(b'up')
+    else:
+        arduino_z.write(b'stop')
+    
+
+
     
     
 
@@ -48,6 +68,9 @@ while True:
     cv2.imshow(
         "My Face Detection Project", video_frame
     )  # display the processed frame in a window named "My Face Detection Project"
+
+    trackFace(avg_x, avg_y)
+
 
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
