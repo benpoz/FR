@@ -41,8 +41,8 @@ def detect_bounding_box(vid):
     avg_y = 0
     
     for (x, y, w, h) in faces:
-        avg_x += x
-        avg_y += y
+        avg_x += x + w//2
+        avg_y += y + h//2
         cv2.rectangle(vid, (x, y), (x + w, y + h), (0, 0, 255), 4)
     
     if faces == ():
