@@ -23,10 +23,10 @@ def move_x(avg_x):
         print('stop')
 
 def move_z(avg_y):
-    if avg_y > y_center+100 and not avg_y == 0:
+    if avg_y > y_center+50 and not avg_y == 0:
         arduino_z.write(b'u')
         print("up")
-    elif avg_y < y_center-100:
+    elif avg_y < y_center-50:
         arduino_z.write(b'd')
         print('down')
     else:
